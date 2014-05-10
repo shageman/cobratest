@@ -9,7 +9,7 @@ module Cbratest
     end
 
     def to_s
-      cbra_dependencies
+      {name: name, options: {path: @root_path}}
     end
 
     def cbra_dependencies

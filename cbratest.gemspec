@@ -16,7 +16,10 @@ Gem::Specification.new do |spec|
                           bin/cbratest
                           cbratest.gemspec
                           Gemfile
+                          lib/cbratest/affected_component_finder.rb
                           lib/cbratest/gemfile_scraper.rb
+                          lib/cbratest/tests_to_run_selector.rb
+                          lib/cbratest/transitive_affected_component_finder.rb
                           lib/cbratest.rb
                           LICENSE
                           Rakefile

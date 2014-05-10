@@ -10,6 +10,9 @@ Test runner employing the structure of Component-based Ruby/Rails apps to optimi
 
 Options are...
     -h, -H, --help                   Display this help message.
+
+    -r, --results                    DEFAULT Display the directories of the components in need of running tests
+    -v, --verbose                    Verbose output of all parts of the calculation
   USAGE
 end
 
@@ -36,7 +39,9 @@ end
 if option
   if %w(--help -h -H).include? option
     puts help_text
-  elsif %w(-r --run).include? option
-    Cbratest.run path
+  elsif %w(-r --results).include? option
+    Cbratest::Runner.new(false).run path
+  elsif %w(-v --verbose).include? option
+    Cbratest::Runner.new(true).run path
   end
 end

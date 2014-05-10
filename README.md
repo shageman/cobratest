@@ -20,6 +20,13 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Todos
+
+* allow for "though process" output instead of just result
+* make algo work for structures where a gem is in a sub folder of another gem (only the inner gem should be diectly affected)
+* optionally check for changes since origin/master
+* optionally allow branch to compare against to be specified
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/cbratest/fork )
