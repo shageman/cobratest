@@ -1,0 +1,42 @@
+#!/usr/bin/ruby
+
+require_relative "../lib/cbratest"
+
+def help_text
+  <<-USAGE
+cbratest [OPTION] [application path]
+
+Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
+
+Options are...
+    -h, -H, --help                   Display this help message.
+  USAGE
+end
+
+option = "-r"
+path = nil
+
+case ARGV.size
+  when 0
+  when 1
+    if ARGV[0].start_with? "-"
+      option = ARGV[0]
+    else
+      path = ARGV[0]
+    end
+  when 2
+    option = ARGV[0]
+    path = ARGV[1]
+  else
+    puts "Incorrect invocation. Please see help:\n\n"
+    puts help_text
+    exit 1
+end
+
+if option
+  if %w(--help -h -H).include? option
+    puts help_text
+  elsif %w(-r --run).include? option
+    Cbratest.run path
+  end
+end
