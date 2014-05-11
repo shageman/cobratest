@@ -7,17 +7,15 @@ describe Cbratest::GemfileScraper do
 
   describe "#cbra_dependencies" do
     it "returns an array of hashes of the runtime cbra_dependencies of a gem" do
-      p "the problem spec"
-
       start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters", "B"))
-      expected_base_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
+      expected_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters", "C"))
 
       scraper = described_class.new(start_path)
       expect(scraper.cbra_dependencies).to eq([
                                                   {:name => "C",
                                                    :options =>
                                                        {
-                                                           :path => File.join(expected_base_path, "C")
+                                                           :path => expected_path
                                                        }
                                                   }
                                               ])
