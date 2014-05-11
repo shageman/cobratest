@@ -1,6 +1,5 @@
 require 'set'
 require 'pathname'
-require 'graphviz'
 
 module Cbratest
   require_relative "cbratest/gemfile_scraper"
