@@ -13,7 +13,9 @@ module Cbratest
     end
 
     def cbra_dependencies
+      puts "cbra_dependencies"
       dirdep = direct_dependencies
+      p dirdep
       transitive_cbra_dependencies.select do |dep|
         dirdep.include?(dep[:name]) || dep[:options][:direct]
       end
@@ -34,6 +36,8 @@ module Cbratest
 
     def raw_gemspec
       path = File.expand_path(File.join(@root_path, "#{underscore(name)}.gemspec"))
+      p ["gemspec", path]
+      p File.exist?(path)
       File.exist?(path) ? File.read(path) : ""
     end
 
@@ -47,6 +51,7 @@ module Cbratest
 
     def raw_gemfile
       path = File.expand_path(File.join(@root_path, "Gemfile"))
+      p ["gemfile", path]
       File.read(path)
     end
 
