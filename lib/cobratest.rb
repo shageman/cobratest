@@ -2,10 +2,10 @@ require 'set'
 require 'pathname'
 
 module Cbratest
-  require_relative "cbratest/gemfile_scraper"
-  require_relative "cbratest/affected_component_finder"
-  require_relative "cbratest/transitive_affected_component_finder"
-  require_relative "cbratest/tests_to_run_selector"
+  require_relative "cobratest/gemfile_scraper"
+  require_relative "cobratest/affected_component_finder"
+  require_relative "cobratest/transitive_affected_component_finder"
+  require_relative "cobratest/tests_to_run_selector"
 
   class Runner
     def initialize(verbose_output)
@@ -17,8 +17,8 @@ module Cbratest
       app = GemfileScraper.new(path)
 
       outputs "All components"
-      cbra_deps = app.transitive_cbra_dependencies.to_set
-      components = cbra_deps << app.to_s
+      cobra_deps = app.transitive_cobra_dependencies.to_set
+      components = cobra_deps << app.to_s
       outputs component_out(components.to_a)
 
 

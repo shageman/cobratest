@@ -4,7 +4,7 @@ module Cbratest
       all_affected = {}
       affected.keys.each do |key|
         gem = GemfileScraper.new(key[:options][:path])
-        if gem.transitive_cbra_dependencies.any? { |dep| affected[dep] }
+        if gem.transitive_cobra_dependencies.any? { |dep| affected[dep] }
           all_affected[key] = true
         else
           all_affected[key] = affected[key] || false

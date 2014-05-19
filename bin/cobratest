@@ -1,10 +1,10 @@
 #!/usr/bin/ruby
 
-require_relative "../lib/cbratest"
+require_relative "../lib/cobratest"
 
 def help_text
   <<-USAGE
-cbratest [OPTION] [application path]
+cobratest [OPTION] [application path]
 
 Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
 

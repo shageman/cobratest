@@ -12,14 +12,14 @@ module Cbratest
       {name: name, options: {path: @root_path}}
     end
 
-    def cbra_dependencies
+    def cobra_dependencies
       dirdep = direct_dependencies
-      transitive_cbra_dependencies.select do |dep|
+      transitive_cobra_dependencies.select do |dep|
         dirdep.include?(dep[:name]) || dep[:options][:direct]
       end
     end
 
-    def transitive_cbra_dependencies
+    def transitive_cobra_dependencies
       gem_dependencies.inject([]) do |memo, dep|
         if !!dep[:options][:path]
           absolute_dep = dep.clone
