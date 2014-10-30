@@ -1,7 +1,7 @@
 require 'set'
 require 'pathname'
 
-module Cbratest
+module Cobratest
   require_relative "cobratest/gemfile_scraper"
   require_relative "cobratest/affected_component_finder"
   require_relative "cobratest/transitive_affected_component_finder"

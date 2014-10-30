@@ -1,4 +1,4 @@
-module Cbratest
+module Cobratest
   class TransitiveAffectedComponentFinder
     def find(affected)
       all_affected = {}

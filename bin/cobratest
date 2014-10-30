@@ -40,8 +40,8 @@ if option
   if %w(--help -h -H).include? option
     puts help_text
   elsif %w(-r --results).include? option
-    Cbratest::Runner.new(false).run path
+    Cobratest::Runner.new(false).run path
   elsif %w(-v --verbose).include? option
-    Cbratest::Runner.new(true).run path
+    Cobratest::Runner.new(true).run path
   end
 end

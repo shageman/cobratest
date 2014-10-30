@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Cbratest do
+describe Cobratest do
   before do
     @puts = []
-    Cbratest::Runner.any_instance.stub(:output) do |arg|
+    Cobratest::Runner.any_instance.stub(:output) do |arg|
       @puts << arg
     end
   end
@@ -11,7 +11,7 @@ describe Cbratest do
   it "outputs all affected components in verbose mode" do
     start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
 
-    Cbratest::Runner.new(true).run(File.join(start_path, 'A'))
+    Cobratest::Runner.new(true).run(File.join(start_path, 'A'))
     expect(@puts).to eq(
                          [
                              "All components",
