@@ -10,6 +10,7 @@ module Cobratest
   class Runner
     def initialize(verbose_output)
       @verbose_output = verbose_output
+      @output = []
     end
 
     def run(root_path)
@@ -38,6 +39,7 @@ module Cobratest
 
       outputs "\nTest scripts to run"
       outputs all_in_need_of_running = TestsToRunSelector.new.list(all_affected), true
+      @output
     end
 
     private
@@ -47,6 +49,7 @@ module Cobratest
     end
 
     def output(arg)
+      @output << arg
       puts arg
     end
 
