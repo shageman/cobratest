@@ -45,11 +45,11 @@ module Cobratest
     private
 
     def outputs(arg, even_non_verbose = false)
+      @output << arg
       output(arg) if even_non_verbose || @verbose_output
     end
 
     def output(arg)
-      @output << arg
       puts arg
     end
 
