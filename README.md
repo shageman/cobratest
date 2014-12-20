@@ -1,6 +1,6 @@
 # cobratest [![Build Status](https://travis-ci.org/shageman/cobratest.svg?branch=master)](https://travis-ci.org/shageman/cobratest) [![Gem Version](https://badge.fury.io/rb/cobratest.svg)](http://badge.fury.io/rb/cobratest) [![Code Climate](https://codeclimate.com/github/shageman/cobratest.png)](https://codeclimate.com/github/shageman/cobratest) [![Dependency Status](https://gemnasium.com/shageman/cobratest.svg)](https://gemnasium.com/shageman/cobratest)
 
-Prints a list of the components that have changed since the last commit and for which tests need to be run. Uses the dependencies within component-based Ruby/Rails applications (#cobra) to also print all transitively affected components.
+Prints a list of the components that have changed since the last commit and for which tests need to be run. Uses the dependencies within component-based Ruby/Rails applications (#cbra) to also print all transitively affected components.
 
 ## Installation
 
