@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Cbratest::GemfileScraper do
+describe Cobratest::GemfileScraper do
   it "'s name is the last part of the given path" do
     expect(described_class.new("some/path_with/a/special_name").name).to eq "special_name"
   end

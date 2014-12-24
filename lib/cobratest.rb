@@ -1,7 +1,7 @@
 require 'set'
 require 'pathname'
 
-module Cbratest
+module Cobratest
   require_relative "cobratest/gemfile_scraper"
   require_relative "cobratest/affected_component_finder"
   require_relative "cobratest/transitive_affected_component_finder"
@@ -10,6 +10,7 @@ module Cbratest
   class Runner
     def initialize(verbose_output)
       @verbose_output = verbose_output
+      @output = []
     end
 
     def run(root_path)
@@ -38,11 +39,13 @@ module Cbratest
 
       outputs "\nTest scripts to run"
       outputs all_in_need_of_running = TestsToRunSelector.new.list(all_affected), true
+      @output
     end
 
     private
 
     def outputs(arg, even_non_verbose = false)
+      @output << arg
       output(arg) if even_non_verbose || @verbose_output
     end
 

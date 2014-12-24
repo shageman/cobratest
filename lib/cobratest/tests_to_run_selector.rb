@@ -1,4 +1,4 @@
-module Cbratest
+module Cobratest
   class TestsToRunSelector
     def list(affected)
       affected.keys.inject([]) do |memo, key|

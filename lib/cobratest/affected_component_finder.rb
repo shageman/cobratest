@@ -1,4 +1,4 @@
-module Cbratest
+module Cobratest
   class AffectedComponentFinder
     def find(components, changes)
       components.inject({}) do |memo, component|

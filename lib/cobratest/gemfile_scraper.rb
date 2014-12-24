@@ -1,4 +1,4 @@
-module Cbratest
+module Cobratest
   class GemfileScraper
     def initialize(root_path)
       @root_path = root_path

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Cbratest::TransitiveAffectedComponentFinder do
+describe Cobratest::TransitiveAffectedComponentFinder do
   describe '#find' do
     it 'marks components as affected that depend on affected components' do
       path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
 
-      expect(Cbratest::TransitiveAffectedComponentFinder.new.find(
+      expect(Cobratest::TransitiveAffectedComponentFinder.new.find(
                  {
                      {name: 'A', options: {path: File.join(path, 'A')}} => false,
                      {name: 'B', options: {path: File.join(path, 'B')}} => true,
@@ -23,7 +23,7 @@ describe Cbratest::TransitiveAffectedComponentFinder do
     it 'does not unmark components that once they are marked' do
       path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
 
-      expect(Cbratest::TransitiveAffectedComponentFinder.new.find(
+      expect(Cobratest::TransitiveAffectedComponentFinder.new.find(
                  {
                      {name: 'A', options: {path: File.join(path, 'A')}} => true,
                      {name: 'B', options: {path: File.join(path, 'B')}} => false,
