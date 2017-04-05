@@ -29,25 +29,22 @@ describe Cbratest::GemfileScraper do
 
       scraper = described_class.new(start_path)
       expect(scraper.transitive_cobra_dependencies).to eq([
-                                                             {:name => "E1",
-                                                              :options =>
-                                                                  {
-                                                                      :path => File.join(expected_base_path, "E1")
-                                                                  }
-                                                             },
-                                                             {:name => "E2",
-                                                              :options =>
-                                                                  {
-                                                                      :path => File.join(expected_base_path, "E2")
-                                                                  }
-                                                             },
-                                                             {:name => "F",
-                                                              :options =>
-                                                                  {
-                                                                      :path => File.join(expected_base_path, "F")
-                                                                  }
-                                                             }
-                                                         ])
+        {:name => "E1",
+          :options => {
+            :path => File.join(expected_base_path, "E1")
+          }
+        },
+        {:name => "E2",
+          :options => {
+            :path => File.join(expected_base_path, "E2")
+          }
+        },
+        {:name => "F",
+          :options => {
+            :path => File.join(expected_base_path, "F")
+          }
+        }
+      ])
     end
   end
 end
