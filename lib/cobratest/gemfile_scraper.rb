@@ -1,3 +1,5 @@
+require "bundler"
+
 module Cbratest
   class GemfileScraper
     def initialize(root_path)
@@ -51,11 +53,12 @@ module Cbratest
     end
 
     def gem_dependencies
-      raw_gemfile.split("\n").inject([]) do |memo, line|
-        match = line.match(/gem\s+["']([^'"]+)["'](.*)/)
-        if match
-          memo << {name: match[1], options: OptionParser.new(match[2]).parse}
-        end
+      gemfile_path = File.join(@root_path, "Gemfile")
+      lockfile_path = File.join(@root_path, "Gemfile.lock")
+      ::Bundler::Definition.build(gemfile_path, lockfile_path, nil).dependencies.inject([]) do |memo, dep|
+        path = dep.source.path.to_s if dep.source
+        path = nil if path == "."
+        memo << { name: dep.name, options: { path: path }}
         memo
       end
     end
