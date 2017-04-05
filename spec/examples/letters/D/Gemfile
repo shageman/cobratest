@@ -5,5 +5,9 @@ gemspec
 
 gem "E1", path: "../E1"
 gem "E2", path: "../E2"
-gem "F", path: "../F"
-  
+
+gem "cobradeps", github: "shageman/cobradeps"
+
+path ".." do
+  gem "F"
+end
