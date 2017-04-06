@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'cobratest'
-  spec.version       = '0.1.1'
+  spec.version       = '0.1.2'
   spec.authors       = ['Stephan Hagemann']
   spec.email         = ['stephan.hagemann@gmail.com']
-  spec.summary       = %q{A test runner for your #cobra application}
-  spec.description   = %q{A test runner that optimizes the tests it runs based on the recent changes of your application. Makes use of #cobra dependencies to infer which parts of the application are definitely unaffected. Science! BOOM!}
-  spec.homepage      = 'https://github.com/shageman/cobradeps'
+  spec.summary       = %q{A test selector for your component-based Rails application}
+  spec.description   = %q{A test selector that suggests the tests based on the recent changes of your application. Makes use of #cbra dependencies to infer which parts of the application are definitely unaffected and can thus be omitted from the current test run.}
+  spec.homepage      = 'https://github.com/shageman/cobratest'
   spec.license       = 'MIT'
 
   spec.files         = %w(
