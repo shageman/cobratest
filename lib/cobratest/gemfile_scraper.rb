@@ -47,11 +47,6 @@ module Cbratest
       end
     end
 
-    def raw_gemfile
-      path = File.expand_path(File.join(@root_path, "Gemfile"))
-      File.read(path)
-    end
-
     def gem_dependencies
       gemfile_path = File.join(@root_path, "Gemfile")
       lockfile_path = File.join(@root_path, "Gemfile.lock")
