@@ -25,7 +25,7 @@ describe Cbratest do
           "F    #{start_path}/F",
           "A    #{start_path}/A"
         ],
-        "\nChanges since last commit",
+        "\nChanges since last commit on current branch",
         [],
         "\nDirectly affected components",
         [],

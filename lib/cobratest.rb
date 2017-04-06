@@ -10,7 +10,7 @@ module Cbratest
   class Runner
     def initialize(opts)
       @verbose_output = opts[:display] == "verbose"
-      @since = opts[:since]
+      @since = opts[:since] || "current branch"
     end
 
     def run(root_path)
@@ -22,9 +22,9 @@ module Cbratest
       components = cobra_deps << app.to_s
       outputs component_out(components.to_a)
 
-      outputs "\nChanges since last commit"
+      outputs "\nChanges since last commit on #{@since}"
       root_dir = `cd #{path} && git rev-parse --show-toplevel`.chomp
-      if @since
+      if @since != "current branch"
         changes = `cd #{root_dir} && git diff --name-only #{@since}`.split("\n").map { |file| File.join(root_dir, file) }
       else
         changes = `cd #{root_dir} && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
