@@ -74,27 +74,5 @@ module Cbratest
           tr("-", "_").
           downcase
     end
-
-    class OptionParser
-      def initialize(options)
-        @options = options
-      end
-
-      def parse
-        {}.merge(path).merge(direct)
-      end
-
-      private
-
-      def path
-        match = @options.match(/path(?:\s*=>|:)\s+["']([^'"]+)["']/)
-        match ? {path: match[1]} : {}
-      end
-
-      def direct
-        match = @options.match(/direct(?:\s*=>|:)\s+true/)
-        match ? {direct: true} : {}
-      end
-    end
   end
 end
