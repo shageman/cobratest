@@ -18,16 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-cobratest [OPTION] [application path]
+    cobratest [OPTION] [application path]
 
-Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
+    Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
 
-Options are...
-    -h, -H, --help                   Display this help message.
-
-    -r, --results                    DEFAULT Display the directories of the components in need of running tests
-    -v, --verbose                    Verbose output of all parts of the calculation
-    -s, --since BRANCH               Specify BRANCH target to calculate against
+    Options are...
+        -h, -H, --help                   Display this help message.
+        -r, --results                    DEFAULT Display the directories of the components in need of running tests
+        -v, --verbose                    Verbose output of all parts of the calculation
+        -s, --since BRANCH               Specify BRANCH target to calculate against
 
 ## Example
 
