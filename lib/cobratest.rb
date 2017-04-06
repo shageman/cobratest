@@ -23,8 +23,8 @@ module Cbratest
 
 
       outputs "\nChanges since last commit"
-      root_dir = `cd #{path} && git rev-parse --show-toplevel`.chomp
-      changes = `cd #{root_dir} && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
+      root_dir = `cd "#{path}" && git rev-parse --show-toplevel`.chomp
+      changes = `cd "#{root_dir}" && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
       outputs changes
 
 
