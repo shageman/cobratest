@@ -1,47 +1,45 @@
 #!/usr/bin/ruby
 
 require_relative "../lib/cobratest"
+require "optparse"
 
-def help_text
-  <<-USAGE
-cobratest [OPTION] [application path]
+options = {
+  display: "results",
+  path: nil
+}
 
-Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
+instructions = OptionParser.new do |opts|
+  opts.banner = "cobratest [OPTION] [application path]\n\n"
+  opts.separator "Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.\n\n"
+  opts.separator "Options are...\n"
 
-Options are...
-    -h, -H, --help                   Display this help message.
-
-    -r, --results                    DEFAULT Display the directories of the components in need of running tests
-    -v, --verbose                    Verbose output of all parts of the calculation
-  USAGE
-end
-
-option = "-r"
-path = nil
-
-case ARGV.size
-  when 0
-  when 1
-    if ARGV[0].start_with? "-"
-      option = ARGV[0]
-    else
-      path = ARGV[0]
-    end
-  when 2
-    option = ARGV[0]
-    path = ARGV[1]
-  else
-    puts "Incorrect invocation. Please see help:\n\n"
-    puts help_text
-    exit 1
-end
-
-if option
-  if %w(--help -h -H).include? option
-    puts help_text
-  elsif %w(-r --results).include? option
-    Cbratest::Runner.new(false).run path
-  elsif %w(-v --verbose).include? option
-    Cbratest::Runner.new(true).run path
+  opts.on("-h", "-H", "--help", "Display this help message.") do
+    puts opts
+    exit
   end
+
+  opts.on("-r", "--results", "DEFAULT Display the directories of the components in need of running tests") do
+    options[:display] = "results"
+  end
+
+  opts.on("-v", "--verbose", "Verbose output of all parts of the calculation") do
+    options[:display] = "verbose"
+  end
+
+  opts.on("-s", "--since BRANCH", "Specify BRANCH target to calculate against") do |branch|
+    options[:since] = branch
+  end
+end
+
+begin
+  instructions.parse!
+  if ARGV.size >= 1
+    Cbratest::Runner.new(options).run ARGV[0]
+  else
+    raise OptionParser::MissingArgument.new("Must specify the application path")
+  end
+rescue OptionParser::InvalidOption, OptionParser::MissingArgument => error
+  puts error
+  puts instructions
+  exit
 end

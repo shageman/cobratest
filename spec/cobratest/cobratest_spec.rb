@@ -10,8 +10,9 @@ describe Cbratest do
 
   it "outputs all affected components in verbose mode" do
     start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
+    options = { display: "verbose" }
 
-    Cbratest::Runner.new(true).run(File.join(start_path, 'A'))
+    Cbratest::Runner.new(options).run(File.join(start_path, 'A'))
     expect(@puts).to eq(
       [
         "All components",

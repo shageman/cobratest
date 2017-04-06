@@ -8,8 +8,9 @@ module Cbratest
   require_relative "cobratest/tests_to_run_selector"
 
   class Runner
-    def initialize(verbose_output)
-      @verbose_output = verbose_output
+    def initialize(opts)
+      @verbose_output = opts[:display] == "verbose"
+      @since = opts[:since]
     end
 
     def run(root_path)
@@ -21,12 +22,14 @@ module Cbratest
       components = cobra_deps << app.to_s
       outputs component_out(components.to_a)
 
-
       outputs "\nChanges since last commit"
-      root_dir = `cd "#{path}" && git rev-parse --show-toplevel`.chomp
-      changes = `cd "#{root_dir}" && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
+      root_dir = `cd #{path} && git rev-parse --show-toplevel`.chomp
+      if @since
+        changes = `cd #{root_dir} && git diff --name-only #{@since}`.split("\n").map { |file| File.join(root_dir, file) }
+      else
+        changes = `cd #{root_dir} && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
+      end
       outputs changes
-
 
       outputs "\nDirectly affected components"
       affected = AffectedComponentFinder.new.find(components, changes)

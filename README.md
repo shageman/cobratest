@@ -18,15 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
-    cobratest [OPTION] [application path]
+cobratest [OPTION] [application path]
 
-    Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
+Test runner employing the structure of Component-based Ruby/Rails apps to optimize what needs to run.
 
-    Options are...
-        -h, -H, --help                   Display this help message.
+Options are...
+    -h, -H, --help                   Display this help message.
 
-        -r, --results                    DEFAULT Display the directories of the components in need of running tests
-        -v, --verbose                    Verbose output of all parts of the calculation
+    -r, --results                    DEFAULT Display the directories of the components in need of running tests
+    -v, --verbose                    Verbose output of all parts of the calculation
+    -s, --since BRANCH               Specify BRANCH target to calculate against
 
 ## Example
 
@@ -71,10 +72,8 @@ In verbose mode one can check the correctness of cobratest's calculation:
     ./cobra/cobratest/spec/examples/letters/A/test.sh
 
 ## Todos
-* make algorithm work for structures where a gem is in a sub folder of another gem (only the inner gem should be diectly affected)
+* make algorithm work for structures where a gem is in a sub folder of another gem (only the inner gem should be directly affected)
 * allow for other test runners to be specified
-* optionally check for changes since origin/master
-* optionally allow branch to compare against to be specified
 
 ## License
 
