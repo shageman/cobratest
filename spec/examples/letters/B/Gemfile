@@ -6,5 +6,8 @@ gemspec
 gem "C", path: "../C"
 gem "D", path: "../D"
 gem "E1", path: "../E1"
-gem "E2", path: "../E2"
-gem "F", path: "../F"
+
+path ".." do
+  gem "E2"
+  gem "F"
+end
