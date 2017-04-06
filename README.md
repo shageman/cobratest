@@ -30,7 +30,7 @@ Or install it yourself as:
 
 ## Example
 
-There are sample #cobra folder structures in `spec/examples`. Here is an example run when changing a file in component `C`:
+There are sample #cbra folder structures in `spec/examples`. Here is an example run when changing a file in component `C`:
 
     ± |master ✗| → bin/cobratest ~/workspace/cobratest/spec/examples/letters/A
     /Users/stephan/workspace/cobratest/spec/examples/letters/B/test.sh
