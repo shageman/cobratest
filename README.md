@@ -32,43 +32,43 @@ Or install it yourself as:
 
 There are sample #cbra folder structures in `spec/examples`. Here is an example run when changing a file in component `C`:
 
-    ± |master ✗| → bin/cobratest ~/workspace/cobratest/spec/examples/letters/A
-    /Users/stephan/workspace/cobratest/spec/examples/letters/B/test.sh
-    /Users/stephan/workspace/cobratest/spec/examples/letters/C/test.sh
-    /Users/stephan/workspace/cobratest/spec/examples/letters/A/test.sh
+    $ bin/cobratest ./cobratest/spec/examples/letters/A
+    ./cobratest/spec/examples/letters/B/test.sh
+    ./cobratest/spec/examples/letters/C/test.sh
+    ./cobratest/spec/examples/letters/A/test.sh
 
 This output can be used to run the necessary tests like so:
 
-    bin/cobratest ~/workspace/cobratest/spec/examples/letters/A | xargs -n1 /bin/bash
+    bin/cobratest ./cobratest/spec/examples/letters/A | xargs -n1 /bin/bash
 
 In verbose mode one can check the correctness of cobratest's calculation:
 
-    ± |master ✗| → bin/cobratest -v ~/workspace/cobra/cobratest/spec/examples/letters/A
+    $ bin/cobratest -v ./cobra/cobratest/spec/examples/letters/A
     All components
-    B    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/B
-    C    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/C
-    D    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/D
-    E1   /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/E1
-    E2   /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/E2
-    F    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/F
-    A    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/A
+    B    ./cobra/cobratest/spec/examples/letters/B
+    C    ./cobra/cobratest/spec/examples/letters/C
+    D    ./cobra/cobratest/spec/examples/letters/D
+    E1   ./cobra/cobratest/spec/examples/letters/E1
+    E2   ./cobra/cobratest/spec/examples/letters/E2
+    F    ./cobra/cobratest/spec/examples/letters/F
+    A    ./cobra/cobratest/spec/examples/letters/A
 
     Changes since last commit
-    /Users/stephan/workspace/cobra/cobratest/README.md
-    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/C/Gemfile
+    ./cobra/cobratest/README.md
+    ./cobra/cobratest/spec/examples/letters/C/Gemfile
 
     Directly affected components
-    C    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/C
+    C    ./cobra/cobratest/spec/examples/letters/C
 
     Transitively affected components
-    B    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/B
-    C    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/C
-    A    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/A
+    B    ./cobra/cobratest/spec/examples/letters/B
+    C    ./cobra/cobratest/spec/examples/letters/C
+    A    ./cobra/cobratest/spec/examples/letters/A
 
     Test scripts to run
-    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/B/test.sh
-    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/C/test.sh
-    /Users/stephan/workspace/cobra/cobratest/spec/examples/letters/A/test.sh
+    ./cobra/cobratest/spec/examples/letters/B/test.sh
+    ./cobra/cobratest/spec/examples/letters/C/test.sh
+    ./cobra/cobratest/spec/examples/letters/A/test.sh
 
 ## Todos
 * make algorithm work for structures where a gem is in a sub folder of another gem (only the inner gem should be diectly affected)
