@@ -23,11 +23,11 @@ module Cbratest
       outputs component_out(components.to_a)
 
       outputs "\nChanges since last commit on #{@since}"
-      root_dir = `cd #{path} && git rev-parse --show-toplevel`.chomp
+      root_dir = `cd "#{path}" && git rev-parse --show-toplevel`.chomp
       if @since != "current branch"
-        changes = `cd #{root_dir} && git diff --name-only #{@since}`.split("\n").map { |file| File.join(root_dir, file) }
+        changes = `cd "#{root_dir}" && git diff --name-only #{@since}`.split("\n").map { |file| File.join(root_dir, file) }
       else
-        changes = `cd #{root_dir} && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
+        changes = `cd "#{root_dir}" && git status -s -u`.split("\n").map { |file| File.join(root_dir, file.sub(/^.../, "")) }
       end
       outputs changes
 
