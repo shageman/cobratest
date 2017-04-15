@@ -5,23 +5,6 @@ describe Cbratest::GemfileScraper do
     expect(described_class.new("some/path_with/a/special_name").name).to eq "special_name"
   end
 
-  describe "#cobra_dependencies" do
-    it "returns an array of hashes of the runtime cobra_dependencies of a gem" do
-      start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters", "B"))
-      expected_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters", "C"))
-
-      scraper = described_class.new(start_path)
-      expect(scraper.cobra_dependencies).to eq([
-                                                  {:name => "C",
-                                                   :options =>
-                                                       {
-                                                           :path => expected_path
-                                                       }
-                                                  }
-                                              ])
-    end
-  end
-
   describe "#transitive_cobra_dependencies" do
     it "returns an array of hashes of the all (transitive) cobra_dependencies" do
       start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters", "D"))
