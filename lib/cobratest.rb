@@ -11,6 +11,7 @@ module Cbratest
     def initialize(opts)
       @verbose_output = opts[:display] == "verbose"
       @since = opts[:since] || "current branch"
+      @test_runner = opts[:runner] || "test.sh"
     end
 
     def run(root_path)
@@ -40,7 +41,7 @@ module Cbratest
       outputs affected_out(all_affected)
 
       outputs "\nTest scripts to run"
-      outputs all_in_need_of_running = TestsToRunSelector.new.list(all_affected), true
+      outputs all_in_need_of_running = TestsToRunSelector.new(@test_runner).list(all_affected), true
     end
 
     private

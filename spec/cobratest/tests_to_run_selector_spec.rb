@@ -10,6 +10,14 @@ describe Cbratest::TestsToRunSelector do
                       )
     end
 
+    it 'accepts an alternate test runner' do
+      expect(Cbratest::TestsToRunSelector.new("spec/**/*.rb").list(
+                 {{:name => "name", :options => {:path => "/some/path"}} => true}
+             )).to eq (
+                          ["/some/path/spec/**/*.rb"]
+                      )
+    end
+
     it 'does not include a test runner if a component is marked as not changed' do
       expect(Cbratest::TestsToRunSelector.new.list(
                  {{:name => "name", :options => {:path => "/some/path"}} => false}
