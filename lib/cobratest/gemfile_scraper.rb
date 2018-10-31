@@ -31,7 +31,7 @@ module Cbratest
       gemfile_path = File.join(@root_path, "Gemfile")
       lockfile_path = File.join(@root_path, "Gemfile.lock")
       ::Bundler::Definition.build(gemfile_path, lockfile_path, nil).dependencies.inject([]) do |memo, dep|
-        path = dep.source.path.to_s if dep.source && dep.source.is_a_path?
+        path = dep.source.path.to_s if dep.source && dep.source.path?
         if path == "."
           path = nil
         elsif path && !path.match(/#{dep.name}/)
