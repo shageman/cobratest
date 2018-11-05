@@ -40,10 +40,10 @@ describe Cbratest do
   it "accepts alternative target branch, calculates based on last commit there" do
     start_path = File.expand_path(File.join(__FILE__, "..", "..", "..", "spec", "examples", "letters"))
     root_path = File.join(start_path, 'C')
-    root_dir = `cd #{root_path} && git rev-parse --show-toplevel`.chomp
+    root_dir = `cd "#{root_path}" && git rev-parse --show-toplevel`.chomp
 
     since = "origin/master"
-    changes = `cd #{root_dir} && git diff --name-only #{since}`.split("\n").map { |file| File.join(root_dir, file) }
+    changes = `cd "#{root_dir}" && git diff --name-only #{since}`.split("\n").map { |file| File.join(root_dir, file) }
     options = { display: "verbose", since: since }
 
     Cbratest::Runner.new(options).run(root_path)
