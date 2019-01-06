@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'cobratest'
-  spec.version       = '0.1.3'
+  spec.version       = '0.1.4'
   spec.authors       = ['Stephan Hagemann']
   spec.email         = ['stephan.hagemann@gmail.com']
   spec.summary       = %q{A test selector for your component-based Rails application}
